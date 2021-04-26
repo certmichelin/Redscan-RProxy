@@ -42,6 +42,8 @@ RUN sed -i 's|#LoadModule ssl_module|LoadModule ssl_module|' conf/httpd.conf
 
 RUN echo "Include conf/redscan.conf" >> conf/httpd.conf
 
+COPY ./htdocs/ /usr/local/apache2/htdocs/
+
 ENTRYPOINT ["httpd-foreground"]
 RUN set -e; \
   set -x; \
